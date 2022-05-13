@@ -123,7 +123,6 @@ const Recommendation = styled.a`
     font-size: 14px;
 `;
 
-
 const BannerCard = styled(FollowCard)`
     img {
         width: 100%;
