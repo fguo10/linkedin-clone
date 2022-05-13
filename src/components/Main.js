@@ -67,7 +67,7 @@ const ShareBox = styled(CommonCard)`
         button {
             outline: none;
             padding-left: auto;
-            color: rgba(0, 0, 0, 0.);
+            color: rgba(0, 0, 0, 0.6);
             font-size: 14px;
             font-family:SF Pro Display;
             line-height: 1.5;
