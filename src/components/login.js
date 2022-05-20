@@ -2,37 +2,38 @@ import styled from "styled-components";
 
 import { connect } from "react-redux";
 import { signInAPI } from "../actions";
-
+import { Redirect } from "react-router";
 
 const Login = (props) => {
-    return (
-        <Container>
-            <Nav>
-                <a href="/">
-                    <img src="/images/login-logo.svg" alt="" />
-                </a>
+  return (
+    <Container>
+      {props.user && <Redirect to="/home" />}
+      <Nav>
+        <a href="/">
+          <img src="/images/login-logo.svg" alt="" />
+        </a>
 
-                <div>
-                    <Join>Join now</Join>
-                    <SignIn>Sign in</SignIn>
-                </div>
-            </Nav>
+        <div>
+          <Join>Join now</Join>
+          <SignIn>Sign in</SignIn>
+        </div>
+      </Nav>
 
-            <Section>
-                <Hero>
-                    <h1>Welcome to your professional community!</h1>
-                    <img src="/images/login-hero.svg" alt="" />
-                </Hero>
-                <Form>
-                    <Google onClick={() => props.signIn()}>
-                        <img src="/images/google.svg" alt="" />
-                        Sign in with Google
-                    </Google>
-                </Form>
+      <Section>
+        <Hero>
+          <h1>Welcome to your professional community!</h1>
+          <img src="/images/login-hero.svg" alt="" />
+        </Hero>
+        <Form>
+          <Google onClick={() => props.signIn()}>
+            <img src="/images/google.svg" alt="" />
+            Sign in with Google
+          </Google>
+        </Form>
 
-            </Section>
-        </Container>
-    )
+      </Section>
+    </Container>
+  )
 }
 
 const Container = styled.div`
@@ -182,7 +183,9 @@ const Google = styled.button`
 `;
 
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    user: state.userState.user,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -190,4 +193,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
-// export default Login;
